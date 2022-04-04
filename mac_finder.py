@@ -47,6 +47,8 @@ elif:
     os_type = extreme_vsp
     net_connect = ConnectHandler(**os_type)
     output = net_connect.send_command("show vlan mac-address-entry mac {}".format(mac_address))
+else:
+    print("That option was not listed please try again.")
 
 #Print the results
 print("\nHere is the Port the MAC address is on:\n")
