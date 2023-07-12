@@ -1,0 +1,35 @@
+# Import modules
+import random
+import string
+import re
+from art import *
+
+# Banner
+tprint("Random MAC Generator")
+
+# Set the required length
+# provide manual string
+mac_length = 12
+af_string = "abcdef" 
+
+# Create the string with "abcdef" and "0-9"
+characters = af_string + string.digits
+
+# Buid and Randomize the string
+# Print MAC Address with no spaces
+generated_string = ''.join(random.choices(characters, k=mac_length))
+print(generated_string)
+
+# Print MAC Address with ":"
+regex = r"(\w{2})(?=\w{1,2})"
+col_str = generated_string
+subst = "\\1:"
+col_result = re.sub(regex, subst, col_str, 0)
+print(col_result)
+
+# Print MAC Address with "-"
+regex = r"(\w{2})(?=\w{1,2})"
+dsh_str = generated_string
+subst = "\\1-"
+dsh_result = re.sub(regex, subst, dsh_str, 0)
+print(dsh_result)
